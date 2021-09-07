@@ -1,32 +1,28 @@
 import logo from './heart.svg';
 import './App.css';
-import Sidebar from './Components/Sidebar';
 import Post from './Components/Post';
 import { useState } from 'react';
 import { title } from 'process';
+import Card from './Components/Card';
 
 function App() {
 
-  const [post, setPost] = useState({
+  const [post] = useState({
     title: 'Título maneiro',
     content: 'E um sub título'
   })
 
-  setTimeout(() => {
-    setPost({
-      title: 'Título maneiro, no setTimeout!',
-      content: 'E um sub título, um retorno em outro forma com setTimeout!'
-    })
-  }, 5000)
+  
 
   return (
     <div className="App">
       <header className="App-header">
-        <Sidebar post={post} />
-        <Post post={post} totalComments={12} />
+        <Card title={"Card"}>
+          <Post post={post} totalComments={12}/>
+        </Card>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Como funcionam as props dentro do React
+          Encapsulando componentes com props.children
         </p>
         <a
           className="App-link"
